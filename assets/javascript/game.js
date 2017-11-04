@@ -35,17 +35,24 @@ var alreadyGuessed = [];
 
 document.onkeyup = function(event) {
 
+  document.getElementById("game").style.display = "inline";
+
+  document.getElementById("start").style.display = "none";
+
+
   var wordToGuess = currentWordsGroup[Math.floor(Math.random() * currentWordsGroup.length)];
   console.log (wordToGuess);
 
   var blank = "";
 
-  var userGuess = event.key;
-
-
   for (var i = 0; i < wordToGuess.length; i++) {
     blank += " _";
   }
+}
+/*
+  var userGuess = event.key;
+  console.log (userGuess);
+
 
   // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
     var html =
@@ -59,5 +66,5 @@ document.onkeyup = function(event) {
     document.querySelector("#game").innerHTML = html;
 
 }
-
+*/
 //
