@@ -7,37 +7,44 @@
 	<!-- bootstrap css -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<!-- my css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css" id="theme_css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="" id="theme_css">
 </head>
 <body>
 	<script src="assets/javascript/game.js"></script> <!-- link to my game.js -->
 
 	<div id="wrap">
-		<div id="pickTheme" class="jumbotron">
+		<div id="pickTheme" class="jumbotron w-100">
 			<div class="container">
 				<h1>Hangman</h1>
 				<h4>Select Your Theme</h4>
-				<div class="btn-group btn-group-lg">
-					<button class="btn btn-primary" onclick="pickTheme1()">Theme1</button>
-					<button class="btn btn-primary" onclick="pickTheme2()">Theme2</button>
-					<button class="btn btn-primary" onclick="pickTheme3()">Theme3</button>
+				<div class="btn-group">
+					<button class="btn btn-primary" onclick="pickTheme(theme1)">Theme1</button>
+					<button class="btn btn-primary" onclick="pickTheme(theme2)">Theme2</button>
+					<button class="btn btn-primary" onclick="pickTheme(theme3)">Theme3</button>
 				</div>
 				<br><br>
 				<p id="theme">Your selected theme:</p>
 			</div> <!-- container -->
 		</div> <!-- jumbotron -->
 
-		<div class="container">
+		<div class="container w-100">
 			<div class="row">
 				<div class="col-6 p-4">
 					<img id="theme_img" class="w-100" src="">
 				</div> <!-- col1 for theme image -->
 				<div class="col-6 p-4">
 					<div id="start">
-    					<p>Press a key to start playing!</p>
+    					<p>Click the button to start playing!</p>
+						<button class="btn btn-primary" onclick="startGame()">Click me</button>
     				</div>
-    				<div id="game" style="display: none;">
-    					Guess a letter: <input type="text" id="fname" onkeyup="myFunction()">
+    				<div id="input" style="display: none;">
+    					<p>Guess a letter: </p>
+    					<input type="text" id="fname" onkeyup="myFunction()">
+  					</div>
+  					<div id="game">
+  						
   					</div>
 				</div> <!-- col2 for game -->
 			</div> <!-- row -->
