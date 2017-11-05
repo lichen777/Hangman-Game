@@ -2,15 +2,15 @@
 var currentWordsGroup = [];
 
 var theme1 = {
-    name: "theme1",
-    words: ["intel", "oracle", "facebook", "google"],
+    name: "Silicon Valley",
+    words: ["INTEL", "ORACLE", "FACEBOOK", "GOOGLE", "UBER", "LINKEDIN", "YAHOO", "APPLE"],
     styleLink: "assets/css/theme1.css",
     imageLink: "assets/images/theme1.png"
   };
 
 var  theme2 = {
-    name: "theme2",
-    words: ["cat", "dog", "horse"],
+    name: "The Jungle Book",
+    words: ["BEAR", "TIGER", "WOLF", "PANTHER", "PYTHON"],
     styleLink: "assets/css/theme2.css",
     imageLink: "assets/images/theme2.png"
   };
@@ -26,18 +26,18 @@ function pickTheme(theme) {
     document.getElementById("theme_css").href = theme.styleLink;
     document.getElementById("theme_img").src = theme.imageLink;
     currentWordsGroup = theme.words;
+    document.getElementById("start").style.display = "inline";
 }
 
 var wins = 0;
 var lives;
 var alreadyGuessed = [];
 var wordToGuess;
-var arrayWord;
 var arrayBlank;
 var blank = "";
 
 function arrayToString(a) {
-  return a.toString();
+  return a.join("");
 }
 
 function stringToArray(a) {
@@ -55,7 +55,7 @@ function startGame() {
   document.getElementById("start").style.display = "none";
 
   wordToGuess = currentWordsGroup[Math.floor(Math.random() * currentWordsGroup.length)];
-  console.log (wordToGuess);
+  //console.log(wordToGuess);
 
   lives = 5;
   blank = "";
@@ -64,8 +64,6 @@ function startGame() {
   for (var i = 0; i < wordToGuess.length; i++) {
     blank += "_";
   }
-
-  arrayWord = wordToGuess.split("");
 
   arrayBlank = stringToArray(blank);
 
@@ -82,32 +80,33 @@ function startGame() {
 }
 
 function theGame(){
-  var userGuess = event.key;
+  var userGuess = event.key.toUpperCase();
   var x = document.getElementById("key");
   x.value = "";
 
+  if (userGuess.charCodeAt() >= 65 && userGuess.charCodeAt() <= 90){
+    var pos = wordToGuess.indexOf(userGuess);
 
-  var pos = wordToGuess.indexOf(userGuess);
-
-  if (pos == -1){
-    alreadyGuessed.push(userGuess);
-    lives--;
-  }else {
-    while (pos !== -1) {
-      arrayBlank[pos] = userGuess;
-      blank = arrayToString(arrayBlank);
-      pos = wordToGuess.indexOf(userGuess, pos + 1);
+    if (pos == -1 && alreadyGuessed.indexOf(userGuess) == -1){
+      alreadyGuessed.push(userGuess);
+      lives--;
+    } else {
+      while (pos !== -1) {
+        arrayBlank[pos] = userGuess;
+        blank = arrayToString(arrayBlank);
+        pos = wordToGuess.indexOf(userGuess, pos + 1);
+      } 
     }
-  }
+  } 
 
-  console.log(blank);
+  //console.log(blank);
 
   if(blank.indexOf("_") == -1) {
     wins++;
     restartGame();
   }
 
-  if (lives == 0 ){
+  if (lives == 0) {
     restartGame();
   }
 
@@ -120,6 +119,5 @@ function theGame(){
         
   // Set the inner HTML contents of the #game div to our html string
   document.querySelector("#game").innerHTML = html;
-
 
 }

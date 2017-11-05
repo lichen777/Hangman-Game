@@ -7,16 +7,16 @@
 	<!-- bootstrap css -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<!-- my css -->
+	<link rel="stylesheet" type="text/css" href="" id="theme_css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-	<link rel="stylesheet" type="text/css" href="" id="theme_css">
 </head>
 <body>
 	<script src="assets/javascript/game.js"></script> <!-- link to my game.js -->
 
 	<div id="wrap">
 		<div class="jumbotron w-100">
-			<div class="container">
+			<div class="container text-center">
 				<h1>Hangman</h1>
 				<div id="pickTheme">
 					<h4>Select Your Theme</h4>
@@ -37,22 +37,15 @@
 					<img id="theme_img" class="w-100" src="">
 				</div> <!-- col1 for theme image -->
 				<div class="col-6 p-4">
-					<div id="start">
+					<div id="start" style="display: none;">
     					<p>Click the button to start playing!</p>
-						<button class="btn btn-primary" onclick="startGame()">Click me</button>
+						<button class="btn btn-primary" onclick="startGame()">Start</button>
     				</div>
     				<div id="input" style="display: none;">
     					<p>Guess a letter: </p>
-    					<input type="text" id="key" onkeyup="theGame()">
+    					<input class="w-50" type="text" id="key" onkeyup="theGame()">
   					</div>
-  					<div id="game">
-  						<!--<br>
-    					<p>wins: <div id="wins"></div></p>
-    					<p>Lives: <div id="lives"></div></p> 
-    					<p>Word to guess: </p>
-    					<p id='blank'></p>
-    					<p>Letter already Guessed: <div id="alreadyGuessed"></div></p> -->
-  					</div>
+  					<div id="game"></div>
 				</div> <!-- col2 for game -->
 			</div> <!-- row -->
 		</div>	<!-- container -->
