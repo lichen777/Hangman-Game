@@ -34,6 +34,7 @@ var alreadyGuessed = [];
 var wordToGuess;
 var arrayWord;
 var arrayBlank;
+var blank = "";
 
 function arrayToString(a) {
   return a.toString();
@@ -41,6 +42,11 @@ function arrayToString(a) {
 
 function stringToArray(a) {
   return a.split("");
+}
+
+function restartGame() {
+  document.getElementById("input").style.display = "none";
+  document.getElementById("start").style.display = "inline";
 }
 
 function startGame() {
@@ -52,8 +58,8 @@ function startGame() {
   console.log (wordToGuess);
 
   lives = 5;
-
-  var blank = "";
+  blank = "";
+  alreadyGuessed = [];
 
   for (var i = 0; i < wordToGuess.length; i++) {
     blank += "_";
@@ -80,6 +86,40 @@ function theGame(){
   var x = document.getElementById("key");
   x.value = "";
 
-  
+
+  var pos = wordToGuess.indexOf(userGuess);
+
+  if (pos == -1){
+    alreadyGuessed.push(userGuess);
+    lives--;
+  }else {
+    while (pos !== -1) {
+      arrayBlank[pos] = userGuess;
+      blank = arrayToString(arrayBlank);
+      pos = wordToGuess.indexOf(userGuess, pos + 1);
+    }
+  }
+
+  console.log(blank);
+
+  if(blank.indexOf("_") == -1) {
+    wins++;
+    restartGame();
+  }
+
+  if (lives == 0 ){
+    restartGame();
+  }
+
+// Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
+  var html =
+    "<br><p>wins: " + wins + "</p>" +
+    "<p>Lives: " + lives + "</p>" + 
+    "<p>Word to guess: </p>" + "<p id='blank'>" + blank + "</p>" +
+    "<p>Letter already Guessed: " + alreadyGuessed + "</p>";
+        
+  // Set the inner HTML contents of the #game div to our html string
+  document.querySelector("#game").innerHTML = html;
+
 
 }
