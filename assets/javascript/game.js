@@ -15,8 +15,8 @@ var  theme2 = {
     imageLink: "assets/images/theme2.png"
   };
 var  theme3 = {
-    name: "theme3",
-    words: ["apple", "peach", "pear"],
+    name: "Fruit Ninja",
+    words: ["APPLE", "COCONUT", "PINEAPPLE", "STRAWBERRY", "WATERMELON", "KIWI", "PEAR"],
     styleLink: "assets/css/theme3.css",
     imageLink: "assets/images/theme3.png"
   };
@@ -70,9 +70,9 @@ function startGame() {
   // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
   var html =
     "<br><p>wins: " + wins + "</p>" +
-    "<p>Lives: " + lives + "</p>" + 
     "<p>Word to guess: </p>" + "<p id='blank'>" + blank + "</p>" +
-    "<p>Letter already Guessed: " + alreadyGuessed + "</p>";
+    "<p>Numbers of guesses remaining: " + lives + "</p>" + 
+    "<p>Letters already Guessed: " + alreadyGuessed + "</p>";
         
   // Set the inner HTML contents of the #game div to our html string
   document.querySelector("#game").innerHTML = html;
@@ -84,7 +84,7 @@ function theGame(){
   var x = document.getElementById("key");
   x.value = "";
 
-  if (userGuess.charCodeAt() >= 65 && userGuess.charCodeAt() <= 90){
+  if (userGuess.charCodeAt() >= 65 && userGuess.charCodeAt() <= 90 && userGuess.length == 1){
     var pos = wordToGuess.indexOf(userGuess);
 
     if (pos == -1 && alreadyGuessed.indexOf(userGuess) == -1){
@@ -113,9 +113,9 @@ function theGame(){
 // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
   var html =
     "<br><p>wins: " + wins + "</p>" +
-    "<p>Lives: " + lives + "</p>" + 
     "<p>Word to guess: </p>" + "<p id='blank'>" + blank + "</p>" +
-    "<p>Letter already Guessed: " + alreadyGuessed + "</p>";
+    "<p>Numbers of guesses remaining: " + lives + "</p>" + 
+    "<p>Letters already Guessed: " + alreadyGuessed + "</p>";
         
   // Set the inner HTML contents of the #game div to our html string
   document.querySelector("#game").innerHTML = html;
