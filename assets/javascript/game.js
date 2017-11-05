@@ -29,9 +29,11 @@ function pickTheme(theme) {
 }
 
 var wins = 0;
-var lives = 5;
+var lives;
 var alreadyGuessed = [];
 var wordToGuess;
+var arrayWord;
+var arrayBlank;
 
 function arrayToString(a) {
   return a.toString();
@@ -43,11 +45,13 @@ function stringToArray(a) {
 
 function startGame() {
   document.getElementById("input").style.display = "inline";
-
+  document.getElementById("pickTheme").style.display = "none";
   document.getElementById("start").style.display = "none";
 
   wordToGuess = currentWordsGroup[Math.floor(Math.random() * currentWordsGroup.length)];
   console.log (wordToGuess);
+
+  lives = 5;
 
   var blank = "";
 
@@ -55,9 +59,9 @@ function startGame() {
     blank += "_";
   }
 
-  var arrayWord = wordToGuess.split("");
+  arrayWord = wordToGuess.split("");
 
-  var arrayBlank = stringToArray(blank);
+  arrayBlank = stringToArray(blank);
 
   // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
   var html =
@@ -66,18 +70,16 @@ function startGame() {
     "<p>Word to guess: </p>" + "<p id='blank'>" + blank + "</p>" +
     "<p>Letter already Guessed: " + alreadyGuessed + "</p>";
         
-
   // Set the inner HTML contents of the #game div to our html string
   document.querySelector("#game").innerHTML = html;
 
 }
 
-
-/*
-//document.onkeyup = function(event) {
-
+function theGame(){
   var userGuess = event.key;
-  console.log (userGuess);
+  var x = document.getElementById("key");
+  x.value = "";
 
-*/
-//
+  
+
+}

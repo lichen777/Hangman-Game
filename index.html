@@ -15,14 +15,16 @@
 	<script src="assets/javascript/game.js"></script> <!-- link to my game.js -->
 
 	<div id="wrap">
-		<div id="pickTheme" class="jumbotron w-100">
+		<div class="jumbotron w-100">
 			<div class="container">
 				<h1>Hangman</h1>
-				<h4>Select Your Theme</h4>
-				<div class="btn-group">
-					<button class="btn btn-primary" onclick="pickTheme(theme1)">Theme1</button>
-					<button class="btn btn-primary" onclick="pickTheme(theme2)">Theme2</button>
-					<button class="btn btn-primary" onclick="pickTheme(theme3)">Theme3</button>
+				<div id="pickTheme">
+					<h4>Select Your Theme</h4>
+					<div class="btn-group">
+						<button class="btn btn-primary" onclick="pickTheme(theme1)">Theme1</button>
+						<button class="btn btn-primary" onclick="pickTheme(theme2)">Theme2</button>
+						<button class="btn btn-primary" onclick="pickTheme(theme3)">Theme3</button>
+					</div>
 				</div>
 				<br><br>
 				<p id="theme">Your selected theme:</p>
@@ -41,10 +43,15 @@
     				</div>
     				<div id="input" style="display: none;">
     					<p>Guess a letter: </p>
-    					<input type="text" id="fname" onkeyup="myFunction()">
+    					<input type="text" id="key" onkeyup="theGame()">
   					</div>
   					<div id="game">
-  						
+  						<!--<br>
+    					<p>wins: <div id="wins"></div></p>
+    					<p>Lives: <div id="lives"></div></p> 
+    					<p>Word to guess: </p>
+    					<p id='blank'></p>
+    					<p>Letter already Guessed: <div id="alreadyGuessed"></div></p> -->
   					</div>
 				</div> <!-- col2 for game -->
 			</div> <!-- row -->
