@@ -9,3 +9,7 @@
 #wrap {
 	max-height: 100%;
 }
+
+input {
+	font-size: 16px;
+}

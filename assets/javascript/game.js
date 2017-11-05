@@ -22,7 +22,7 @@ var  theme3 = {
   };
 
 function pickTheme(theme) {
-    document.querySelector("#theme").innerHTML = "Your selected theme: " + theme.name;
+    document.querySelector("#theme").innerHTML = theme.name;
     document.getElementById("theme_css").href = theme.styleLink;
     document.getElementById("theme_img").src = theme.imageLink;
     currentWordsGroup = theme.words;
@@ -53,7 +53,7 @@ function startGame() {
   document.getElementById("input").style.display = "inline";
   document.getElementById("pickTheme").style.display = "none";
   document.getElementById("start").style.display = "none";
-
+  document.getElementById("focus").scrollIntoView();
   wordToGuess = currentWordsGroup[Math.floor(Math.random() * currentWordsGroup.length)];
   //console.log(wordToGuess);
 
