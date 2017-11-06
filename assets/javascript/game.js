@@ -53,7 +53,7 @@ function startGame() {
   document.getElementById("input").style.display = "inline";
   document.getElementById("pickTheme").style.display = "none";
   document.getElementById("start").style.display = "none";
-  document.getElementById("focus").scrollIntoView();
+  //document.getElementById("focus").scrollIntoView();
   wordToGuess = currentWordsGroup[Math.floor(Math.random() * currentWordsGroup.length)];
   //console.log(wordToGuess);
 
