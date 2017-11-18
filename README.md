@@ -1,6 +1,6 @@
 # Hangman-Game
 
-https://lichen777.github.io/Hangman
+https://lichen777.github.io/Hangman-Game/index.html
 
 1. Watch the demo.
 
