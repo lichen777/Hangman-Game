@@ -6,10 +6,10 @@
 	margin: 0 auto;
 }
 
-#wrap {
-	max-height: 100%;
-}
-
 input {
 	font-size: 16px;
+}
+
+.row {
+	min-height: 100vh;
 }

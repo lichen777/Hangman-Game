@@ -44,6 +44,7 @@ function stringToArray(a) {
   return a.split("");
 }
 
+//no need to use this function anyway. add it for checking purpose
 function restartGame() {
   document.getElementById("input").style.display = "none";
   document.getElementById("start").style.display = "inline";
@@ -53,6 +54,7 @@ function startGame() {
   document.getElementById("input").style.display = "inline";
   document.getElementById("pickTheme").style.display = "none";
   document.getElementById("start").style.display = "none";
+  console.log(document.getElementById("start"));
   //document.getElementById("focus").scrollIntoView();
   wordToGuess = currentWordsGroup[Math.floor(Math.random() * currentWordsGroup.length)];
   //console.log(wordToGuess);
@@ -67,6 +69,10 @@ function startGame() {
 
   arrayBlank = stringToArray(blank);
 
+  display();
+}
+
+function display(){
   // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
   var html =
     "<br><p>wins: " + wins + "</p>" +
@@ -76,7 +82,6 @@ function startGame() {
         
   // Set the inner HTML contents of the #game div to our html string
   document.querySelector("#game").innerHTML = html;
-
 }
 
 function theGame(){
@@ -98,26 +103,16 @@ function theGame(){
       } 
     }
   } 
-
   //console.log(blank);
 
   if(blank.indexOf("_") == -1) {
     wins++;
-    restartGame();
+    startGame();
   }
 
   if (lives == 0) {
-    restartGame();
+    startGame();
   }
 
-// Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
-  var html =
-    "<br><p>wins: " + wins + "</p>" +
-    "<p>Word to guess: </p>" + "<p id='blank'>" + blank + "</p>" +
-    "<p>Numbers of guesses remaining: " + lives + "</p>" + 
-    "<p>Letters already Guessed: " + alreadyGuessed + "</p>";
-        
-  // Set the inner HTML contents of the #game div to our html string
-  document.querySelector("#game").innerHTML = html;
-
+  display();
 }

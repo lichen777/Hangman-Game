@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<!-- my css -->
 	<link rel="stylesheet" type="text/css" href="" id="theme_css">
-	<link rel="stylesheet" type="text/css" href="assets/css/hangmanstyle.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 <body>
@@ -17,7 +17,7 @@
 	<div id="wrap">
 		<div class="jumbotron w-100">
 			<div class="container text-center">
-				<h1 id = "focus">Hangman</h1>
+				<h1>HANGMAN</h1>
 				<div id="pickTheme">
 					<h4>Select Your Theme</h4>
 					<div class="btn-group">
@@ -35,14 +35,13 @@
 					<p id="theme" class="text-center"></p>
 					<img id="theme_img" class="w-100" src="">
 				</div> <!-- col1 for theme image -->
-				<div class="col-6 p-4">
+				<div class="col-6 py-4 pr-0">
 					<div id="start" style="display: none;">
     					<p>Click the button to start playing!</p>
 						<button class="btn btn-primary" onclick="startGame()">Start</button>
     				</div>
     				<div id="input" style="display: none;">
-    					<p>Guess a letter: </p>
-    					<input class="w-50" type="text" id="key" onkeyup="theGame()">
+    					<p>Guess a letter:   <input class="w-25" type="text" id="key" onFocus="window.scrollTo(0, 120);" onkeyup="theGame()"></p>
   					</div>
   					<div id="game"></div>
 				</div> <!-- col2 for game -->
